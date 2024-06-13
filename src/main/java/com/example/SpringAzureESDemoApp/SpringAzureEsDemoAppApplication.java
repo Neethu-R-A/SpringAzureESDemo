@@ -1,0 +1,13 @@
+package com.example.SpringAzureESDemoApp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringAzureEsDemoAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringAzureEsDemoAppApplication.class, args);
+	}
+
+}
