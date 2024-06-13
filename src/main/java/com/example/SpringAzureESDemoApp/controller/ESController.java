@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.SpringAzureESDemoApp.service.ESService;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.ElasticsearchException;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 
@@ -55,5 +56,46 @@ public class ESController {
 	                .body(Collections.singletonList("Error searching: " + e.getMessage()));
 	    }
 	}
+	
+	@GetMapping("/venue")
+	public List<String> getVenues() throws ElasticsearchException, IOException{
+		List<String> venues=service.getUniqueVenue();
+		
+		return venues;
+	}
+	
+	@GetMapping("/season")
+	public List<Long> getSeasons() throws ElasticsearchException, IOException{
+		List<Long> season=service.getAllSeasons();
+		
+		return season;
+	}
 
+	@GetMapping("/teams")
+	public List<String> getTeams() throws ElasticsearchException, IOException{
+		List<String> teams=service.getAllTeams();
+		
+		return teams;
+	}
+	
+	@GetMapping("/city")
+	public List<String> getCity() throws ElasticsearchException, IOException{
+		List<String> city=service.getAllCities();
+		
+		return city;
+	}
+	
+	@GetMapping("/umpire")
+	public List<String> getUmpire() throws ElasticsearchException, IOException{
+		List<String> umpire=service.getAllUmpire();
+		
+		return umpire;
+	}
+	
+	@GetMapping("/kind")
+	public List<String> getAllKind() throws ElasticsearchException, IOException{
+		List<String> kind=service.getAllKinds();
+		
+		return kind;
+	}
 }
