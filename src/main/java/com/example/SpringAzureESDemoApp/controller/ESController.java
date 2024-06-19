@@ -20,7 +20,7 @@ import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/main")
 @CrossOrigin(origins = "*")
 public class ESController {
 	
@@ -64,6 +64,13 @@ public class ESController {
 		return venues;
 	}
 	
+	@GetMapping("/getAllSeason")
+	public List<Long> getAllSeasons() throws ElasticsearchException, IOException{
+		List<Long> season=service.getAllSeasons();
+		System.out.println("season -> "+season);
+		return season;
+	}
+	
 	@GetMapping("/season")
 	public List<Long> getSeasons() throws ElasticsearchException, IOException{
 		List<Long> season=service.getAllSeasons();
@@ -71,7 +78,14 @@ public class ESController {
 		return season;
 	}
 
-	@GetMapping("/teams")
+	@GetMapping("/getAllTeams")
+	public List<String> getAllTeams() throws ElasticsearchException, IOException{
+		List<String> teams=service.getAllTeams();
+		
+		return teams;
+	}
+	
+	@GetMapping("/team")
 	public List<String> getTeams() throws ElasticsearchException, IOException{
 		List<String> teams=service.getAllTeams();
 		
@@ -92,7 +106,7 @@ public class ESController {
 		return umpire;
 	}
 	
-	@GetMapping("/kind")
+	@GetMapping("/getAllKind")
 	public List<String> getAllKind() throws ElasticsearchException, IOException{
 		List<String> kind=service.getAllKinds();
 		
