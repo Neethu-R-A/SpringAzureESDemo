@@ -74,7 +74,7 @@ public class ESController {
 	@GetMapping("/season")
 	public List<Long> getSeasons() throws ElasticsearchException, IOException{
 		List<Long> season=service.getAllSeasons();
-		
+		System.out.println("season -> "+season);
 		return season;
 	}
 
