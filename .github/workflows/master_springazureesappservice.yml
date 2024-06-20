@@ -40,23 +40,23 @@ jobs:
       id-token: write #This is required for requesting the JWT
 
     steps:
-  - name: Download artifact from build job
-    uses: actions/download-artifact@v3
-    with:
-      name: java-app
-  
-  - name: Login to Azure
-    uses: azure/login@v1
-    with:
-      client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D2D77C498B34C3494769553194CC940 }}
-      tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_49BCA5CF5F9B4AB4A859A0C62FE98665 }}
-      subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_00744CC481C5409F9168715AFF5B3082 }}
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: java-app
+      
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D2D77C498B34C3494769553194CC940 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_49BCA5CF5F9B4AB4A859A0C62FE98665 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_00744CC481C5409F9168715AFF5B3082 }}
 
-  - name: Deploy to Azure Web App
-    id: deploy-to-webapp
-    uses: azure/webapps-deploy@v2
-    with:
-      app-name: 'SpringAzureESAppService'
-      slot-name: 'Production'
-      package: '*.jar'
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'SpringAzureESAppService'
+          slot-name: 'Production'
+          package:  '*.jar'
           
