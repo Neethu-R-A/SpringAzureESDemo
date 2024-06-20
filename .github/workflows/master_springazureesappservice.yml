@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'SpringAzureESAppService'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '${{ github.workspace }}/target/*.jar'
           
