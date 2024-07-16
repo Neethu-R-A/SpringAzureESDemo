@@ -23,10 +23,14 @@ import lombok.Setter;
 @Configuration("es")
 public class ESClient {
 
-	private String hostname = "https://my-deployment.es.centralindia.azure.elastic-cloud.com";
-    private String apiKeyId = "uH8yBpABKnNa1xTT2EmW";
-    private String apiKeySecret = "aQzPgblYQy2xGwjqfWOp3Q";
+//	private String hostname = "https://my-deployment.es.centralindia.azure.elastic-cloud.com";
+//    private String apiKeyId = "uH8yBpABKnNa1xTT2EmW";
+//    private String apiKeySecret = "aQzPgblYQy2xGwjqfWOp3Q";
 
+    private String hostname="https://benelux-elasticsearch.es.northeurope.azure.elastic-cloud.com";
+    private String apiKeyId = "FnXmkZAB91y0iX8f1bJx";
+    private String apiKeySecret = "z4av4lWwQ4qRqmw_nLOeLg";
+    
     @Bean
     public ElasticsearchClient getElasticSearchClient() {
         String apiKeyAuth = apiKeyId + ":" + apiKeySecret;
